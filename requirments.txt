@@ -1,5 +1,6 @@
 Flask
+gunicorn
 python-dotenv
 google-generativeai
-PyMuPDF  
-python-docx  
+PyMuPDF
+python-docx
