@@ -44,8 +44,7 @@ def analyze_resume(filepath):
     ats_score = None
     feedback_points = []
 
-    # Regular expression to extract ATS Score
-    score_pattern = re.compile(r'ATS Score.*?(\d{1,3})')  # Looks for numbers (0-100) after "ATS Score"
+    score_pattern = re.compile(r'ATS Score.*?(\d{1,3})')  
     
     for line in lines:
         match = score_pattern.search(line)  # Check if the line contains an ATS score
@@ -54,7 +53,6 @@ def analyze_resume(filepath):
         else:
             feedback_points.append(line.strip())
 
-    # Select specific points: 3rd, 5th, 7th, 9th, and 11th (if available)
     selected_points = [feedback_points[i] for i in [3, 5, 7, 9, 11] if i < len(feedback_points)]
 
-    return ats_score, selected_points  # Return ATS score and selected feedback points
+    return ats_score, selected_points  
