@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os
 import re
 from dotenv import load_dotenv
-from utils.resume_parser import extract_text  # Ensure this function correctly extracts text
+from utils.resume_parser import extract_text  
 
 # Load API Key
 load_dotenv()
