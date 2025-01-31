@@ -1,7 +1,7 @@
-import fitz  # PyMuPDF for PDFs
+import fitz  
 from docx import Document
-import pytesseract  # OCR for scanned PDFs (optional)
-from PIL import Image  # Required for OCR-based extraction
+import pytesseract  
+from PIL import Image  
 
 def extract_text(file_path):
     """
@@ -15,8 +15,8 @@ def extract_text(file_path):
 
         for page in doc:
             page_text = page.get_text("text")  # Preserve formatting
-            if not page_text.strip():  # If no text found, it might be a scanned PDF
-                img = page.get_pixmap()  # Convert PDF page to image
+            if not page_text.strip():  
+                img = page.get_pixmap()  
                 img = Image.frombytes("RGB", [img.width, img.height], img.samples)
                 page_text = pytesseract.image_to_string(img)  # Extract text using OCR
 
